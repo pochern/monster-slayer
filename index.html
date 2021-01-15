@@ -43,7 +43,7 @@
                 <div class="small-12 columns">
                     <button id="attack" @click="attack">ATTACK</button>
                     <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>
-                    <button id="heal">HEAL</button>
+                    <button id="heal" @click="heal">HEAL</button>
                     <button id="give-up">GIVE UP</button>
                 </div>
             </section>
@@ -89,6 +89,14 @@
                     return;
                 }
 
+                this.monsterAttacks();
+            },
+            heal() {
+                if (this.playerHealth <= 90) {
+                    this.playerHealth += 10;
+                } else {
+                    this.playerHealth = 100;
+                }
                 this.monsterAttacks();
             },
             monsterAttacks() {
