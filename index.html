@@ -99,6 +99,9 @@
                 }
                 this.monsterAttacks();
             },
+            giveUp() {
+                this.isGameStarted = false;
+            },
             monsterAttacks() {
                 this.playerHealth -= this.calculateDamage(5, 12);
                 this.checkWin();
