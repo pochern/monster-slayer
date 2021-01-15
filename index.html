@@ -34,12 +34,12 @@
                     </div>
                 </div>
             </section>
-            <section class="row controls">
+            <section class="row controls" v-if="!isGameStarted">
                 <div class="small-12 columns">
-                    <button id="start-game">START NEW GAME</button>
+                    <button id="start-game" @click="startGame">START NEW GAME</button>
                 </div>
             </section>
-            <section class="row controls">
+            <section class="row controls" v-else>
                 <div class="small-12 columns">
                     <button id="attack">ATTACK</button>
                     <button id="special-attack">SPECIAL ATTACK</button>
@@ -68,6 +68,13 @@
             playerHealth: 100,
             monsterHealth: 100,
             isGameStarted: false
+        },
+        methods: {
+            startGame() {
+                this.isGameStarted = true;
+                this.playerHealth = 100;
+                this.monsterHealth = 100;
+            }
         }
     })
 </script>
